@@ -1,7 +1,5 @@
 package cn.idestiny.heap;
 
-import cn.idestiny.util.GeneratedArray;
-
 
 /**
  * @Auther: FAN
@@ -21,6 +19,22 @@ public class MaxHeap<Item extends Comparable> {
         data = (Item[]) new Comparable[capacity+1];
         count = 0;
         this.capacity = capacity;
+    }
+
+    public MaxHeap(Item[] arr){
+        data = (Item[])new Comparable[arr.length];
+        capacity = arr.length;
+
+        for (int i = 0;i<arr.length;i++){
+            data[i+1] = arr[i];
+        }
+
+        count = arr.length;
+        //完全二叉树 第一个非叶子节点的索引是二叉树元素个数/2
+        for (int i = count/2;i>=1;i--){
+            shiftDown(i);
+        }
+
     }
 
     /**
@@ -43,6 +57,46 @@ public class MaxHeap<Item extends Comparable> {
         data[count+1] = item;
         count++;
         shiftUp(count);
+    }
+
+    /**
+     * 弹出堆顶元素
+     * @return
+     */
+    public Item extractMax(){
+
+        assert count > 0:"空堆";
+
+        Item item = data[1];
+
+        swap(1,count);
+        count--;
+
+        shiftDown(1);
+
+        return item;
+
+    }
+
+    /**
+     * 寻找最后一个堆元素合适的位置
+     * @param k
+     */
+    private void shiftDown(int k) {
+
+        while(2*k<=count){
+            int j = 2*k;
+            if(j+1<=count&&data[j+1].compareTo(data[j])>0){
+                j++;
+            }
+
+            if (data[k].compareTo(data[j])>=0){
+                break;
+            }
+            swap(k,j);
+            k = j;
+        }
+
     }
 
     /**
@@ -75,21 +129,17 @@ public class MaxHeap<Item extends Comparable> {
         return count == 0;
     }
 
-    public void print(){
-        for (int i = 1;i<=count;i++){
-            System.out.print(data[i]+"\t");
-        }
-    }
 
     public static void main(String[] args) {
         MaxHeap<Comparable<Integer>> maxHeap = new MaxHeap<>(100);
 
-        for (int i = 0;i<50;i++){
+        for (int i = 0;i<100;i++){
             maxHeap.insert((int)(Math.random()*100));
         }
-        for (int i = 1;i<=maxHeap.size();i++){
-            System.out.print(maxHeap.data[i]+"\t");
-        }
 
+
+        while(!maxHeap.isEmpty()){
+            System.out.print(maxHeap.extractMax()+"\t");
+        }
     }
 }

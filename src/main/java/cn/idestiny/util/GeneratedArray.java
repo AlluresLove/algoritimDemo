@@ -31,6 +31,31 @@ public class GeneratedArray {
     }
 
     /**
+     *
+     * 生成随机长度数组[min,max)
+     *
+     * @param min 最小值
+     * @param max 最大值
+     * @param num
+     * @return
+     */
+    public static Integer[] randomGeneratedArray1(int min, int max, int num) {
+
+        //断言判断
+        assert max>min:"数组生成范围指定有误";
+
+        Integer[] arr = new Integer[num];
+
+        for (int i = 0; i < arr.length; i++) {
+            //随机生成[min,max)范围内的数字，并且存放到数组中
+            arr[i] = (int) (Math.random() * (max - min)) + min;
+        }
+
+        return arr;
+
+    }
+
+    /**
      * 生成一个近乎有序的数组
      * @param n 数组产固定
      * @param swapTimes 随机交换多少个数字
