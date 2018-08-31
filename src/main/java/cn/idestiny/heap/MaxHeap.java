@@ -22,7 +22,7 @@ public class MaxHeap<Item extends Comparable> {
     }
 
     public MaxHeap(Item[] arr){
-        data = (Item[])new Comparable[arr.length];
+        data = (Item[])new Comparable[arr.length+1];
         capacity = arr.length;
 
         for (int i = 0;i<arr.length;i++){
