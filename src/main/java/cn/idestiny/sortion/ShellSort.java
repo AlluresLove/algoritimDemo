@@ -23,7 +23,7 @@ public class ShellSort {
 
     public static void main(String[] args) {
 
-        int[] arr = GeneratedArray.randomGeneratedArray(0, 1000000, 1000000);
+        int[] arr = GeneratedArray.randomGeneratedArray(0, 10000, 1000000);
         long start = System.currentTimeMillis();
         shellSort(arr);
         GeneratedArray.isSorted(arr);
@@ -44,7 +44,7 @@ public class ShellSort {
             //对每个分组执行插入排序算法
             for(int i = h;i<size;i++){
                 //记录插入值
-                int key = arr[h];
+                int key = arr[i];
                 //插入值前一个元素的位置
                 int j = i-h;
                 //如果插入之比前一个值大，则插入之只需向后排列即可，不用在和前面的元素比较。
