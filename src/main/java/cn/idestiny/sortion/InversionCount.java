@@ -45,7 +45,7 @@ public class InversionCount {
 
         int i = left;
         int j = mid + 1;
-        long count = 0l;
+        long count = 0L;
 
         for (int k = left; k <= right; k++) {
 

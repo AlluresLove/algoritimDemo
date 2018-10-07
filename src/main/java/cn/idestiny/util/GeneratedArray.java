@@ -6,7 +6,6 @@ package cn.idestiny.util;
 public class GeneratedArray {
 
     /**
-     *
      * 生成随机长度数组[min,max)
      *
      * @param min 最小值
@@ -17,7 +16,7 @@ public class GeneratedArray {
     public static int[] randomGeneratedArray(int min, int max, int num) {
 
         //断言判断
-        assert max>min:"数组生成范围指定有误";
+        assert max > min : "数组生成范围指定有误";
 
         int[] arr = new int[num];
 
@@ -31,7 +30,6 @@ public class GeneratedArray {
     }
 
     /**
-     *
      * 生成随机长度数组[min,max)
      *
      * @param min 最小值
@@ -42,7 +40,7 @@ public class GeneratedArray {
     public static Integer[] randomGeneratedArray1(int min, int max, int num) {
 
         //断言判断
-        assert max>min:"数组生成范围指定有误";
+        assert max > min : "数组生成范围指定有误";
 
         Integer[] arr = new Integer[num];
 
@@ -57,19 +55,20 @@ public class GeneratedArray {
 
     /**
      * 生成一个近乎有序的数组
-     * @param n 数组产固定
+     *
+     * @param n         数组产固定
      * @param swapTimes 随机交换多少个数字
      * @return arr
      */
-    public static int[] generateNearlyOrderedArray(int n, int swapTimes){
+    public static int[] generateNearlyOrderedArray(int n, int swapTimes) {
 
         int[] arr = new int[n];
-        for( int i = 0 ; i < n ; i ++ )
+        for (int i = 0; i < n; i++) {
             arr[i] = i;
-
-        for( int i = 0 ; i < swapTimes ; i ++ ){
-            int a = (int)(Math.random() * n);
-            int b = (int)(Math.random() * n);
+        }
+        for (int i = 0; i < swapTimes; i++) {
+            int a = (int) (Math.random() * n);
+            int b = (int) (Math.random() * n);
             int t = arr[a];
             arr[a] = arr[b];
             arr[b] = t;
@@ -80,22 +79,24 @@ public class GeneratedArray {
 
     /**
      * 打印数组
+     *
      * @param arr 数组
      */
-    public static void printArray(int[] arr){
-        for(int i:arr){
-            System.out.print(i+",");
+    public static void printArray(int[] arr) {
+        for (int i : arr) {
+            System.out.print(i + ",");
         }
         System.out.println();
     }
 
     /**
      * 判断数组是否有序
+     *
      * @param arr
      */
-    public static void isSorted(int[] arr){
-        for(int i = 0;i<arr.length-1;i++){
-            if(arr[i]>arr[i+1]){
+    public static void isSorted(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] > arr[i + 1]) {
                 System.out.println("数组不是有序");
                 return;
             }
@@ -105,12 +106,13 @@ public class GeneratedArray {
 
     /**
      * 复制数组
+     *
      * @param arr
      * @return
      */
-    public static int[] copyArray(int[] arr){
+    public static int[] copyArray(int[] arr) {
         int[] arrs = new int[arr.length];
-        for (int i = 0;i<arrs.length;i++){
+        for (int i = 0; i < arrs.length; i++) {
             arrs[i] = arr[i];
         }
         return arrs;
@@ -118,11 +120,12 @@ public class GeneratedArray {
 
     /**
      * arr[i] arr[j]交换位置
+     *
      * @param arr 数组
      * @param i
      * @param j
      */
-    public static void swap(int[] arr,int i,int j){
+    public static void swap(int[] arr, int i, int j) {
         int tmp = arr[i];
         arr[i] = arr[j];
         arr[j] = tmp;
