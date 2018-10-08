@@ -43,6 +43,7 @@ public class FSSequence {
      */
     public static int fsMethodTwo(int num) {
         int[] arr = new int[num+1];
+        //当num == 0 时，数组默认值为0
         if (num >= 1) {
             arr[1] = 1;
         }
