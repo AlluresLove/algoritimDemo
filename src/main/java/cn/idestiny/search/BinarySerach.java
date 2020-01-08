@@ -11,6 +11,12 @@ import java.util.Arrays;
  **/
 public class BinarySerach {
 
+    /**
+     * 对数组进行二分查找，获得位置
+     * @param arr 数组
+     * @param v 元素
+     * @return 元素所在位置
+     */
     public static int binarySearch(int[] arr,int v){
 
         //数组范围[i,j]
